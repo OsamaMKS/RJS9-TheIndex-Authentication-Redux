@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import { checkForExpiredToken } from "./actions";
 
 import reducer from "./reducers";
 
@@ -12,5 +13,6 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 store.dispatch(fetchAuthors());
 store.dispatch(fetchBooks());
+store.dispatch(checkForExpiredToken());
 
 export default store;
